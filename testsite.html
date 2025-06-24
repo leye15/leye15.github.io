@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Mariama LEYE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset et base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #4e79a7;
+            --secondary-color: #2c3e50;
+            --accent-color: #e15759;
+            --light-color: #f0f0f0;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), 
+                        url('https://www.mygreatlearning.com/blog/wp-content/uploads/2021/12/What-is-Data-Science.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        /* Sections générales */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* À propos */
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Parcours académique - Nouveau design */
+        #education {
+            background-color: var(--light-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Section Projets */
+        #projects {
+            background-color: var(--light-color);
+        }
+        
+        .year-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .year-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .year-tab.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .projects-container {
+            display: none;
+        }
+        
+        .projects-container.active {
+            display: block;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .project-image {
+            flex: 1;
+            max-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            flex: 2;
+        }
+        
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .project-card .project-year {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-card .more-info {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .project-card .more-info:hover {
+            color: var(--accent-color);
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .github-link:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Section Stage */
+        #stage {
+            background-color: white;
+        }
+        
+        .stage-content {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .stage-summary {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+        
+        .stage-summary h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .stage-summary ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .stage-summary li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        
+        .stage-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stage-video {
+            flex: 1;
+        }
+        
+        .stage-video video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact */
+        #contact {
+            background-color: var(--light-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                max-width: 100%;
+            }
+            
+            .stage-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        
+            .mobile-menu-btn {
+                display: block;
+            }
+        
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="C:\Users\maria\Downloads\moimeme.jpg" alt="Photo de profil" class="profile-img">
+            <h1>Mariama LEYE</h1>
+            <p class="tagline">Étudiante en 2ème année de BUT Science des Données | Passionnée par l'analyse et la visualisation de données</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/leye15/projet_BUT" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ML</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about">À propos</a>
+                <a href="#education">Parcours</a>
+                <a href="#projects">Projets</a>
+                <a href="#stage">Stage</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- À propos -->
+    <section id="about">
+        <div class="section-title">
+            <h2>À propos de moi</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Future Data Scientist</h3>
+                <p>Étudiante passionnée par la science des données, je me spécialise dans l'analyse, le traitement et la visualisation des données. Mon parcours en BUT Science des Données m'a permis d'acquérir des compétences solides en programmation statistique et en gestion de bases de données.</p>
+                <p>Je suis particulièrement intéressée par les applications concrètes de la data science dans divers domaines tels que la santé, l'environnement ou le marketing. Mon objectif est de transformer des données complexes en insights actionnables.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Data Science">
+            </div>
+        </div>
+    </section>
+
+    <!-- Parcours académique - Nouveau design -->
+    <section id="education">
+        <div class="section-title">
+            <h2>Mon Parcours Académique</h2>
+        </div>
+        
+        <div class="timeline">
+            <!-- Baccalauréat -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="timeline-date">2022 - 2023</span>
+                    <h3>Baccalauréat Scientifique</h3>
+                    <p>Lycée de Ndoffane, Sénégal</p>
+                    <p>J'ai obtenu mon baccalauréat scientifique avec la mention Bien, en me spécialisant en mathématiques, sciences de la vie et de la terre, et physique-chimie. Ce choix reflète mon intérêt profond pour les disciplines scientifiques, en particulier les mathématiques, une passion que j'ai développée très tôt grâce à l'influence de mon oncle, professeur de mathématiques.</p>
+                </div>
+            </div>
+            
+            <!-- BUT Science des Données -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span class="timeline-date">2024 - 2025</span>
+                    <h3>BUT Science des Données</h3>
+                    <p>Université Sorbonne Paris Nord, Villetaneuse</p>
+                    <p>Ce cursus mêle statistiques, mathématiques, informatique et visualisation de données, tout en mettant l'accent sur la pratique, les projets concrets et l'insertion professionnelle. J'ai choisi cette formation car elle correspond parfaitement à mon profil et à mes aspirations : passionnée par les mathématiques depuis le collège, je voulais m'orienter vers un domaine à la fois scientifique, concret et utile à la société.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>Mes Projets Académiques</h2>
+        </div>
+        
+        <div class="year-tabs">
+            <div class="year-tab active" onclick="showProjects('but1')">BUT1</div>
+            <div class="year-tab" onclick="showProjects('but2')">BUT2</div>
+        </div>
+        
+        <!-- Projets BUT1 -->
+        <div id="but1-projects" class="projects-container active">
+            <!-- SAÉ Enquête -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SAÉ Enquête sur la musique">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT1 - 2023/2024</span>
+                    <h3>SAÉ Enquête</h3>
+                    <p>Cette première situation d'apprentissage a consisté à concevoir et réaliser une enquête autour du thème "la pratique et l'écoute de la musique des Français". Elle m'a permis de traverser toutes les étapes du processus d'enquête : création d'un questionnaire, collecte de données, nettoyage des réponses, visualisation à l'aide de graphiques, et interprétation des résultats.</p>
+                    <p>Si cette SAÉ m'a permis de valider les compétences "Analyser" et "Valoriser", elle m'a aussi confronté à des difficultés en "Traitement", liées à mon manque d'aisance initial avec les outils numériques et les langages de programmation.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Enquete" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAÉ Data Visualisation -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Visualisation">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT1 - 2023/2024</span>
+                    <h3>SAÉ Data Visualisation</h3>
+                    <p>Dans cette SAÉ, nous avons approfondi les techniques de représentation graphique des données à l'aide des langages R et Python. L'objectif était d'apprendre à rendre les données compréhensibles et parlantes à travers des visualisations pertinentes : histogrammes, nuages de points, diagrammes en barres, etc.</p>
+                    <p>Cette compétence est essentielle dans le métier de statisticien, car elle permet de transmettre efficacement les résultats à un public varié.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_DataViz" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAÉ Régression Linéaire -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Régression Linéaire">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT1 - 2023/2024</span>
+                    <h3>SAÉ Régression Linéaire</h3>
+                    <p>Cette activité nous a plongés dans l'analyse de données réelles à travers la mise en œuvre de la régression linéaire. J'ai appris à ajuster des modèles, à interpréter les coefficients, et à évaluer la qualité de la prédiction.</p>
+                    <p>Cette méthode statistique, couramment utilisée dans des domaines comme la finance ou la santé, m'a aidé à renforcer mes compétences analytiques et prédictives.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Regression" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projets BUT2 -->
+        <div id="but2-projects" class="projects-container">
+            <!-- SAÉ Création d'application -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="C:\Users\maria\Downloads\Shiny_portfolio.jpn" alt="Application Shiny">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT2 - 2024/2025</span>
+                    <h3>SAÉ Création d'application interface utilisateur</h3>
+                    <p>Dans cette SAÉ, nous avons développé une application interactive avec R et le framework Shiny pour visualiser les données de consommation énergétique en France. L'objectif principal était d'explorer les consommations totales et moyennes d'électricité et de gaz par département, secteur d'activité et année, à l'aide d'une carte choroplèthe et de graphiques de tendance.</p>
+                    <p>L'application intègre des fonctionnalités avancées : filtres dynamiques, visualisation cartographique avec Leaflet, graphiques avec ggplot2, tableaux interactifs (DataTable) et sélection conditionnelle des départements (France Métropolitaine ou Outre-mer). Ce projet m'a permis de consolider mes compétences en traitement de données, en création d'interfaces utilisateur et en valorisation visuelle des résultats, tout en approfondissant l'usage de langages comme R et SQL pour l'analyse énergétique.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_ShinyApp" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAÉ Enquête avec stratification -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Enquête stratifiée">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT2 - 2024/2025</span>
+                    <h3>SAÉ Enquête avec stratification</h3>
+                    <p>Dans cette SAÉ, nous avons réalisé une enquête complète avec une stratification de l'échantillon, afin de recueillir et analyser des données de manière représentative. Le projet s'est porté sur un thème d'actualité, pour lequel nous avons conçu un plan d'échantillonnage prenant en compte plusieurs strates (ex. : sexe, âge, lieu de résidence).</p>
+                    <p>Nous avons ensuite administré le questionnaire, nettoyé les données, puis mené une analyse statistique approfondie (tri à plat, tableaux croisés, calculs d'indicateurs) à l'aide de R. Ce travail m'a permis de mobiliser les trois compétences clés : Traitement (gestion des données), Analyse (interprétation statistique) et Valorisation (présentation claire des résultats). Ce projet m'a aussi sensibilisé à l'importance de la rigueur méthodologique dans la collecte de données, ce qui est essentiel pour les études statistiques en santé, en marketing ou en politique publique.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_EnqueteStratifiee" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SAÉ Analyse de séries chronologiques -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Séries chronologiques">
+                </div>
+                <div class="project-content">
+                    <span class="project-year">BUT2 - 2024/2025</span>
+                    <h3>SAÉ Analyse de séries chronologiques</h3>
+                    <p>Dans cette SAÉ, nous avons étudié l'évolution du chiffre d'affaires dans le secteur des transports aériens. À partir de données mensuelles, nous avons identifié une tendance et une saisonnalité, puis effectué des prévisions à l'aide de méthodes simples comme les moyennes mobiles ou le lissage exponentiel.</p>
+                    <p>Nous avons aussi testé un modèle ARIMA pour affiner nos prédictions. Ce projet m'a appris à analyser des données dans le temps, à détecter des motifs réguliers et à anticiper les évolutions futures.</p>
+                    <div class="project-links">
+                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_SeriesTemporelles" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage -->
+    <section id="stage">
+        <div class="section-title">
+            <h2>Mon Stage en Entreprise</h2>
+        </div>
+        
+        <div class="stage-content">
+            <div class="stage-summary">
+                <h3>Stage de gestion de données</h3>
+                <p>J'ai effectué un stage de 2 mois au sein du département Science des Données de mon université, où j'ai développé une application web pour optimiser le suivi des stages étudiants.</p>
+                
+                <h4>Principales missions :</h4>
+                <ul>
+                    <li>Conception et implémentation d'une base de données PostgreSQL</li>
+                    <li>Développement d'une interface Shiny avec visualisations interactives</li>
+                    <li>Création de fonctionnalités de filtrage et d'export des données</li>
+                    <li>Intégration d'une carte interactive pour localiser les entreprises</li>
+                </ul>
+                
+                <h4>Compétences développées :</h4>
+                <ul>
+                    <li>Gestion de bases de données relationnelles</li>
+                    <li>Développement d'applications web avec R Shiny</li>
+                    <li>Visualisation interactive de données</li>
+                    <li>Gestion de projet agile</li>
+                </ul>
+                
+                <div class="stage-links">
+                    <a href="https://github.com/leye15/projet_BUT/tree/main/Stage" class="more-info" target="_blank">
+                        Voir le code <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#video-stage" class="more-info">
+                        Voir la vidéo <i class="fas fa-play-circle"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="stage-video" id="video-stage">
+                <video controls>
+                    <source src="C:\Users\maria\Downloads\vidéo_stage.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">Présentation de mon projet de stage</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contactez-moi</h2>
+        </div>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Vous souhaitez en savoir plus sur mon parcours ou discuter d'une opportunité ? N'hésitez pas à me contacter !</p>
+            <div style="display: flex; justify-content: center; gap: 2rem;">
+                <a href="mailto:mariamaleye49@gmail.com" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> Email
+                </a>
+                <a href="tel:0766606574" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
+                    <i class="fas fa-phone" style="margin-right: 0.5rem;"></i> Téléphone
+                </a>
+                <a href="https://www.linkedin.com/in/mariama-leye/" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
+                    <i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="back-to-top">
+                <i class="fas fa-arrow-up" style="margin-right: 0.5rem;"></i> Retour en haut
+            </a>
+            <p class="footer-text">© 2025 Mariama LEYE. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Animation au défilement
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu mobile si ouvert
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Fonction pour afficher les projets par année
+        function showProjects(year) {
+            // Masquer tous les containers de projets
+            document.querySelectorAll('.projects-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.year-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activer le container et l'onglet correspondants
+            document.getElementById(year + '-projects').classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
