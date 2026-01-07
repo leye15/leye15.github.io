@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Mariama LEYE</title>
+    <title>Portfolio - Mariama LEYE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset et base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Variables et Reset */
         :root {
             --primary-color: #4e79a7;
             --secondary-color: #2c3e50;
@@ -22,89 +16,58 @@
             --dark-color: #2c3e50;
             --text-color: #333;
             --text-light: #777;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --but1-color: #4e79a7;
+            --but2-color: #59a14f;
+            --but3-color: #e15759;
+            --success-color: #4CAF50;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             line-height: 1.6;
             color: var(--text-color);
             background-color: #f9f9f9;
         }
-        
-        /* Header */
-        header {
-            background: linear-gradient(rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), 
-                        url('https://www.mygreatlearning.com/blog/wp-content/uploads/2021/12/What-is-Data-Science.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* Typographie */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
         }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-3px);
-        }
-        
+
         /* Navigation */
-        nav {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -113,423 +76,275 @@
             align-items: center;
             padding: 1rem 2rem;
         }
-        
+
         .logo {
             font-weight: 700;
-            color: var(--primary-color);
             font-size: 1.5rem;
+            color: var(--secondary-color);
         }
-        
+
         .nav-links {
             display: flex;
+            list-style: none;
             gap: 2rem;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
         }
-        
+
         .nav-links a:hover {
             color: var(--primary-color);
         }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-color);
+            color: var(--secondary-color);
         }
-        
+
         /* Sections générales */
         section {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
-            position: relative;
         }
-        
+
         .section-title h2 {
-            font-size: 2rem;
-            color: var(--secondary-color);
+            position: relative;
             display: inline-block;
             padding-bottom: 0.5rem;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            border-radius: 2px;
         }
-        
-        /* À propos */
-        #about {
-            background-color: white;
-        }
-        
-        .about-content {
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
             display: flex;
-            gap: 3rem;
             align-items: center;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(78, 121, 167, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(225, 87, 89, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #0f1a2f 0%, #1a2b45 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
         }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-        
-        /* Parcours académique - Nouveau design */
-        #education {
-            background-color: var(--light-color);
-        }
-        
-        .timeline {
-            position: relative;
+
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* À propos */
+        #about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Parcours académique */
+        #education {
+            background-color: var(--light-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .timeline::before {
             content: '';
             position: absolute;
-            width: 2px;
-            background-color: var(--light-color);
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -1px;
+            margin-left: -2px;
+            border-radius: 2px;
         }
-        
+
         .timeline-item {
             padding: 10px 40px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
+            margin-bottom: 2rem;
         }
-        
+
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             background-color: white;
             border: 4px solid var(--primary-color);
             border-radius: 50%;
             top: 15px;
             z-index: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
+
         .left {
             left: 0;
         }
-        
+
         .right {
             left: 50%;
         }
-        
+
         .left::after {
-            right: -10px;
+            right: -12px;
         }
-        
+
         .right::after {
-            left: -10px;
+            left: -12px;
         }
-        
+
         .timeline-content {
-            padding: 20px;
+            padding: 25px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
         }
-        
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
         .timeline-content h3 {
             margin-bottom: 0.5rem;
             color: var(--secondary-color);
+            font-size: 1.4rem;
         }
-        
+
         .timeline-date {
             color: var(--primary-color);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 0.5rem;
             display: block;
+            font-size: 1.1rem;
         }
-        
+
         .timeline-content p {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
-        
-        /* Section Projets */
-        #projects {
-            background-color: var(--light-color);
-        }
-        
-        .year-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #ddd;
-        }
-        
-        .year-tab {
-            padding: 0.8rem 1.5rem;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--text-light);
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .year-tab.active {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-        
-        .projects-container {
-            display: none;
-        }
-        
-        .projects-container.active {
-            display: block;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .project-image {
-            flex: 1;
-            max-width: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .project-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .project-content {
-            flex: 2;
-        }
-        
-        .project-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .project-card .project-year {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .project-card .more-info {
-            color: var(--primary-color);
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-        
-        .project-card .more-info:hover {
-            color: var(--accent-color);
-        }
-        
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--dark-color);
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .github-link:hover {
-            color: var(--accent-color);
-        }
-        
-        /* Section Stage */
-        #stage {
-            background-color: white;
-        }
-        
-        .stage-content {
-            display: flex;
-            gap: 3rem;
-        }
-        
-        .stage-summary {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            flex: 1;
-        }
-        
-        .stage-summary h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .stage-summary ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .stage-summary li {
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-        }
-        
-        .stage-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .stage-video {
-            flex: 1;
-        }
-        
-        .stage-video video {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Contact */
-        #contact {
-            background-color: var(--light-color);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .back-to-top {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .footer-text {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .project-card {
-                flex-direction: column;
-            }
-            
-            .project-image {
-                max-width: 100%;
-            }
-            
-            .stage-content {
-                flex-direction: column;
-            }
-        }
-        
+
+        /* Responsive timeline */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        
-            .mobile-menu-btn {
-                display: block;
-            }
-        
-            .about-content {
-                flex-direction: column;
-            }
-            
             .timeline::before {
                 left: 31px;
             }
@@ -552,52 +367,956 @@
                 left: 0;
             }
         }
+
+        /* Projets */
+        #projects {
+            background-color: var(--white);
+        }
+
+        /* Tabs pour les années */
+        .year-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #ddd;
+            flex-wrap: wrap;
+        }
         
+        .year-tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .year-tab.active {
+            color: var(--primary-color);
+            border-bottom: 4px solid var(--primary-color);
+        }
+        
+        .year-tab.but1.active {
+            color: var(--but1-color);
+            border-bottom-color: var(--but1-color);
+        }
+        
+        .year-tab.but2.active {
+            color: var(--but2-color);
+            border-bottom-color: var(--but2-color);
+        }
+        
+        .year-tab.but3.active {
+            color: var(--but3-color);
+            border-bottom-color: var(--but3-color);
+        }
+        
+        .year-tab .year-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .projects-container {
+            display: none;
+        }
+        
+        .projects-container.active {
+            display: block;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid #f0f0f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .project-link.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .project-link.secondary {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .project-link:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Technologies utilisées */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Mes passions */
+        .passion-description {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-style: italic;
+            color: var(--text-light);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Détails spécifiques au projet Data Mining */
+        .data-mining-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .data-mining-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .workflow-diagram {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .results-highlight {
+            background: linear-gradient(135deg, #e8f7e8 0%, #d4f0d4 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid var(--success-color);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .result-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .result-item h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .result-item h5 i {
+            color: var(--success-color);
+        }
+        
+        /* Section plus d'infos */
+        .more-info-section {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff9f9 0%, #fff0f0 100%);
+            border-radius: 12px;
+            border-left: 5px solid var(--accent-color);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .more-info-section.active {
+            display: block;
+        }
+        
+        .more-info-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .more-info-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .more-info-btn .fa-chevron-down {
+            transition: transform 0.3s;
+        }
+        
+        .more-info-btn.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        .model-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .model-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .model-card h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .model-card ul {
+            padding-left: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .model-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        /* Section Stage Interactive */
+        #stage {
+            background-color: var(--light-color);
+        }
+        
+        .stage-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .stage-header p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .stage-overview {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+        
+        .stage-info-card {
+            flex: 1;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .stage-info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stage-info-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .stage-info-card h3 i {
+            color: var(--primary-color);
+        }
+        
+        .stage-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .stage-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .stage-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            height: 180px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .stage-missions {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+        }
+        
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .mission-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-5px);
+            background-color: #e8f4ff;
+        }
+        
+        .mission-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .mission-card h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .mission-card ul {
+            padding-left: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .mission-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        /* Compétences développées */
+        .skills-improvement {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .skills-grid-stage {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-improvement-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .skill-improvement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+        }
+        
+        .skill-icon-improvement {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--success-color), #8BC34A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .skill-improvement-info h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .skill-improvement-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .stage-achievements {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .achievement-item:hover {
+            transform: translateX(10px);
+            background-color: #f8fff0;
+        }
+        
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF9800, #FFC107);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Contact */
+        #contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .year-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .year-tab {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .stage-overview {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .missions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid-stage {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-mining-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .model-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+        
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .stage-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         section {
             animation: fadeIn 0.8s ease-out;
         }
+        
+        /* Animation pour les compétences */
+        @keyframes skillUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        .skill-improvement-card {
+            animation: skillUp 0.6s ease-out forwards;
+        }
+        
+        /* Délai d'animation pour chaque carte de compétence */
+        .skill-improvement-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-improvement-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-improvement-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-improvement-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-improvement-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-improvement-card:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header avec navigation -->
     <header>
-        <div class="header-content">
-            <img src="moimeme.jpg" alt="Photo de profil" class="profile-img">
-            <h1>Mariama LEYE</h1>
-            <p class="tagline">Étudiante en 2ème année de BUT Science des Données | Passionnée par l'analyse et la visualisation de données</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/leye15/projet_BUT" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
+        <div class="nav-container">
+            <div class="logo">Mariama LEYE</div>
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#education">Parcours</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#stage">Stage</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">ML</div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#about">À propos</a>
-                <a href="#education">Parcours</a>
-                <a href="#projects">Projets</a>
-                <a href="#stage">Stage</a>
-                <a href="#contact">Contact</a>
-            </div>
+    <!-- Section Hero -->
+    <section id="hero">
+        <div class="hero-content">
+            <!-- Remplacez cette image par votre photo -->
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                 alt="Photo de Mariama LEYE" 
+                 class="profile-img">
+            <h1>Mariama LEYE</h1>
+            <p class="tagline">Étudiante en BUT Science des Données<br>Animée par une forte envie de percer le mystère de l’univers des données et des mathématiques.</p>
+            <a href="#projects" class="cta-button">Découvrir mes projets</a>
         </div>
-    </nav>
+    </section>
 
-    <!-- À propos -->
+    <!-- Section À propos -->
     <section id="about">
         <div class="section-title">
             <h2>À propos de moi</h2>
@@ -607,6 +1326,40 @@
                 <h3>Future Data Scientist</h3>
                 <p>Étudiante passionnée par la science des données, je me spécialise dans l'analyse, le traitement et la visualisation des données. Mon parcours en BUT Science des Données m'a permis d'acquérir des compétences solides en programmation statistique et en gestion de bases de données.</p>
                 <p>Je suis particulièrement intéressée par les applications concrètes de la data science dans divers domaines tels que la santé, l'environnement ou le marketing. Mon objectif est de transformer des données complexes en insights actionnables.</p>
+                
+                <h3>Compétences techniques</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-r-project"></i>
+                        <h4>R</h4>
+                        <p>Analyse statistique</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <h4>Python</h4>
+                        <p>Data Science</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <h4>SQL</h4>
+                        <p>Bases de données</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Visualisation</h4>
+                        <p>ggplot2, Matplotlib</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Machine Learning</h4>
+                        <p>Scikit-learn</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-table"></i>
+                        <h4>Excel</h4>
+                        <p>Analyse de données</p>
+                    </div>
+                </div>
             </div>
             <div class="about-img">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Data Science">
@@ -614,7 +1367,7 @@
         </div>
     </section>
 
-    <!-- Parcours académique - Nouveau design -->
+    <!-- Parcours académique -->
     <section id="education">
         <div class="section-title">
             <h2>Mon Parcours Académique</h2>
@@ -643,66 +1396,96 @@
         </div>
     </section>
 
-    <!-- Projets -->
+    <!-- Section Projets -->
     <section id="projects">
         <div class="section-title">
-            <h2>Mes Projets Académiques</h2>
+            <h2>Mes Projets</h2>
         </div>
         
+        <!-- Mes passions pour les projets -->
+        <div class="passion-description">
+            <p>"Je suis passionnée par la création de projets concrets qui transforment des données brutes en insights précieux. Chaque projet représente une opportunité d'appliquer mes compétences techniques à des problématiques réelles et de développer des solutions innovantes."</p>
+        </div>
+        
+        <!-- Tabs pour les années -->
         <div class="year-tabs">
-            <div class="year-tab active" onclick="showProjects('but1')">BUT1</div>
-            <div class="year-tab" onclick="showProjects('but2')">BUT2</div>
+            <div class="year-tab but1 active" onclick="showProjects('but1')">
+                BUT1
+                <span class="year-badge">3 projets</span>
+            </div>
+            <div class="year-tab but2" onclick="showProjects('but2')">
+                BUT2
+                <span class="year-badge">4 projets</span>
+            </div>
+            <div class="year-tab but3" onclick="showProjects('but3')">
+                BUT3
+                <span class="year-badge">2 projets</span>
+            </div>
         </div>
         
         <!-- Projets BUT1 -->
         <div id="but1-projects" class="projects-container active">
-            <!-- SAÉ Enquête -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SAÉ Enquête sur la musique">
-                </div>
-                <div class="project-content">
-                    <span class="project-year">BUT1 - 2023/2024</span>
-                    <h3>SAÉ Enquête</h3>
-                    <p>Cette première situation d'apprentissage a consisté à concevoir et réaliser une enquête autour du thème "la pratique et l'écoute de la musique des Français". Elle m'a permis de traverser toutes les étapes du processus d'enquête : création d'un questionnaire, collecte de données, nettoyage des réponses, visualisation à l'aide de graphiques, et interprétation des résultats.</p>
-                    <p>Si cette SAÉ m'a permis de valider les compétences "Analyser" et "Valoriser", elle m'a aussi confronté à des difficultés en "Traitement", liées à mon manque d'aisance initial avec les outils numériques et les langages de programmation.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Enquete" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+            <div class="projects-grid">
+                <!-- Projet 1 BUT1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SAÉ Enquête sur la musique">
+                    </div>
+                    <div class="project-content">
+                        <h3>SAÉ Enquête sur la musique</h3>
+                        <p>Conception et réalisation d'une enquête sur la pratique et l'écoute de la musique des Français. Collecte, nettoyage et visualisation des données avec analyse des résultats.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">ggplot2</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">Questionnaire</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Enquete" class="project-link primary" target="_blank">Voir le projet</a>
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Enquete" class="project-link secondary" target="_blank">Code source</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- SAÉ Data Visualisation -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Visualisation">
-                </div>
-                <div class="project-content">
-                    <span class="project-year">BUT1 - 2023/2024</span>
-                    <h3>SAÉ Data Visualisation</h3>
-                    <p>Dans cette SAÉ, nous avons approfondi les techniques de représentation graphique des données à l'aide des langages R et Python. L'objectif était d'apprendre à rendre les données compréhensibles et parlantes à travers des visualisations pertinentes : histogrammes, nuages de points, diagrammes en barres, etc.</p>
-                    <p>Cette compétence est essentielle dans le métier de statisticien, car elle permet de transmettre efficacement les résultats à un public varié.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_DataViz" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                
+                <!-- Projet 2 BUT1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Visualisation">
+                    </div>
+                    <div class="project-content">
+                        <h3>SAÉ Data Visualisation</h3>
+                        <p>Techniques avancées de visualisation avec R et Python. Création d'histogrammes, nuages de points et diagrammes en barres pour rendre les données compréhensibles.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Seaborn</span>
+                            <span class="tech-tag">R</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_DataViz" class="project-link primary" target="_blank">Voir le projet</a>
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_DataViz" class="project-link secondary" target="_blank">Code source</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- SAÉ Régression Linéaire -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Régression Linéaire">
-                </div>
-                <div class="project-content">
-                    <span class="project-year">BUT1 - 2023/2024</span>
-                    <h3>SAÉ Régression Linéaire</h3>
-                    <p>Cette activité nous a plongés dans l'analyse de données réelles à travers la mise en œuvre de la régression linéaire. J'ai appris à ajuster des modèles, à interpréter les coefficients, et à évaluer la qualité de la prédiction.</p>
-                    <p>Cette méthode statistique, couramment utilisée dans des domaines comme la finance ou la santé, m'a aidé à renforcer mes compétences analytiques et prédictives.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Regression" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                
+                <!-- Projet 3 BUT1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Analyse statistique">
+                    </div>
+                    <div class="project-content">
+                        <h3>Analyse statistique descriptive</h3>
+                        <p>Mise en pratique des méthodes statistiques de base sur des jeux de données réels. Calcul d'indicateurs statistiques et interprétation des résultats.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Statistiques</span>
+                            <span class="tech-tag">dplyr</span>
+                            <span class="tech-tag">tidyr</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">Voir le projet</a>
+                            <a href="#" class="project-link secondary">Code source</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -710,123 +1493,770 @@
         
         <!-- Projets BUT2 -->
         <div id="but2-projects" class="projects-container">
-            <!-- SAÉ Création d'application -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="Shiny_portfolio.jpn" alt="Application Shiny">
+            <div class="projects-grid">
+                <!-- Projet 1 BUT2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Application Shiny">
+                    </div>
+                    <div class="project-content">
+                        <h3>Application Shiny - Consommation énergétique</h3>
+                        <p>Développement d'une application interactive pour visualiser les données de consommation énergétique en France avec cartes choroplèthes et graphiques dynamiques.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R Shiny</span>
+                            <span class="tech-tag">Leaflet</span>
+                            <span class="tech-tag">ggplot2</span>
+                            <span class="tech-tag">DataTable</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_ShinyApp" class="project-link primary" target="_blank">Voir le projet</a>
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_ShinyApp" class="project-link secondary" target="_blank">Code source</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-content">
-                    <span class="project-year">BUT2 - 2024/2025</span>
-                    <h3>SAÉ Création d'application interface utilisateur</h3>
-                    <p>Dans cette SAÉ, nous avons développé une application interactive avec R et le framework Shiny pour visualiser les données de consommation énergétique en France. L'objectif principal était d'explorer les consommations totales et moyennes d'électricité et de gaz par département, secteur d'activité et année, à l'aide d'une carte choroplèthe et de graphiques de tendance.</p>
-                    <p>L'application intègre des fonctionnalités avancées : filtres dynamiques, visualisation cartographique avec Leaflet, graphiques avec ggplot2, tableaux interactifs (DataTable) et sélection conditionnelle des départements (France Métropolitaine ou Outre-mer). Ce projet m'a permis de consolider mes compétences en traitement de données, en création d'interfaces utilisateur et en valorisation visuelle des résultats, tout en approfondissant l'usage de langages comme R et SQL pour l'analyse énergétique.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_ShinyApp" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                
+                <!-- Projet 2 BUT2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Enquête stratifiée">
+                    </div>
+                    <div class="project-content">
+                        <h3>Enquête avec échantillonnage stratifié</h3>
+                        <p>Réalisation d'une enquête complète avec stratification de l'échantillon. Plan d'échantillonnage représentatif et analyse statistique approfondie.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Enquêtes</span>
+                            <span class="tech-tag">Échantillonnage</span>
+                            <span class="tech-tag">Statistiques</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_EnqueteStratifiee" class="project-link primary" target="_blank">Voir le projet</a>
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_EnqueteStratifiee" class="project-link secondary" target="_blank">Code source</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 BUT2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine Learning">
+                    </div>
+                    <div class="project-content">
+                        <h3>Introduction au Machine Learning</h3>
+                        <p>Implémentation d'algorithmes de classification et régression. Validation croisée et optimisation des hyperparamètres sur des jeux de données publics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">Voir le projet</a>
+                            <a href="#" class="project-link secondary">Code source</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 4 BUT2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Base de données">
+                    </div>
+                    <div class="project-content">
+                        <h3>Conception et gestion de base de données</h3>
+                        <p>Modélisation UML, création de schéma relationnel et implémentation en SQL. Requêtes complexes, jointures et optimisation des performances.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">UML</span>
+                            <span class="tech-tag">Normalisation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary">Voir le projet</a>
+                            <a href="#" class="project-link secondary">Code source</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- SAÉ Enquête avec stratification -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Enquête stratifiée">
-                </div>
-                <div class="project-content">
-                    <span class="project-year">BUT2 - 2024/2025</span>
-                    <h3>SAÉ Enquête avec stratification</h3>
-                    <p>Dans cette SAÉ, nous avons réalisé une enquête complète avec une stratification de l'échantillon, afin de recueillir et analyser des données de manière représentative. Le projet s'est porté sur un thème d'actualité, pour lequel nous avons conçu un plan d'échantillonnage prenant en compte plusieurs strates (ex. : sexe, âge, lieu de résidence).</p>
-                    <p>Nous avons ensuite administré le questionnaire, nettoyé les données, puis mené une analyse statistique approfondie (tri à plat, tableaux croisés, calculs d'indicateurs) à l'aide de R. Ce travail m'a permis de mobiliser les trois compétences clés : Traitement (gestion des données), Analyse (interprétation statistique) et Valorisation (présentation claire des résultats). Ce projet m'a aussi sensibilisé à l'importance de la rigueur méthodologique dans la collecte de données, ce qui est essentiel pour les études statistiques en santé, en marketing ou en politique publique.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_EnqueteStratifiee" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+        </div>
+        
+        <!-- Projets BUT3 -->
+        <div id="but3-projects" class="projects-container">
+            <div class="projects-grid">
+                <!-- Projet 1 BUT3 - Data Mining pour la prédiction de récidive -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Mining Justice">
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Mining - Prédiction du Risque de Récidive</h3>
+                        <p>Projet complet de Data Mining visant à prédire le risque de récidive chez les délinquants. Nettoyage, exploration, imputation et modélisation sur un jeu de données de 1.4 million d'observations provenant du système judiciaire.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Data Mining</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        
+                        <div class="data-mining-section">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-chart-line"></i> Contexte et Objectifs
+                            </h4>
+                            <p>Ce projet aborde une problématique cruciale du système judiciaire : la prédiction du risque de récidive. À partir d'un dataset massif contenant 54 variables décrivant des cas judiciaires (démographie, antécédents, types d'infractions, décisions de justice), l'objectif est de développer un modèle prédictif fiable pour identifier les facteurs clés influençant la récidive.</p>
+                            
+                            <div class="data-mining-stats">
+                                <div class="stat-card">
+                                    <div class="stat-value">1.47M</div>
+                                    <div class="stat-label">Lignes initiales</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">54</div>
+                                    <div class="stat-label">Variables</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">58</div>
+                                    <div class="stat-label">Variables finales</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">0%</div>
+                                    <div class="stat-label">Valeurs manquantes</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-diagram">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-project-diagram"></i> Méthodologie et Processus
+                            </h4>
+                            
+                            <div class="workflow-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Analyse Exploratoire des Données</h4>
+                                    <p>Examen approfondi du dataset initial : identification des types de variables, détection des valeurs aberrantes, analyse des distributions et des corrélations. Calcul du pourcentage de valeurs manquantes par variable.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Nettoyage et Prétraitement</h4>
+                                    <p>Correction de la cohérence temporelle (âge jugement ≥ âge infraction), suppression des valeurs aberrantes, conversion des types de données. Création de 4 variables dérivées pertinentes pour la modélisation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Imputation Intelligente des Valeurs Manquantes</h4>
+                                    <p>Stratégie d'imputation basée sur la logique métier : jail = 0 quand probation = 1, imputation par la médiane conditionnelle (case_type × violent_crime), imputation du mode pour les variables catégorielles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Modélisation Prédictive</h4>
+                                    <p>Construction de modèles de classification (régression logistique, random forest, XGBoost) pour prédire recid_180d. Optimisation des hyperparamètres par validation croisée.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="more-info-btn" onclick="toggleMoreInfo('data-mining-info')">
+                            <i class="fas fa-chevron-down"></i> Plus d'informations sur ce projet
+                        </button>
+                        
+                        <div id="data-mining-info" class="more-info-section">
+                            <h4 style="color: var(--accent-color); margin-bottom: 1.5rem;">
+                                <i class="fas fa-info-circle"></i> Détails Techniques du Projet Data Mining
+                            </h4>
+                            
+                            <div class="model-details">
+                                <div class="model-card">
+                                    <h5><i class="fas fa-database"></i> Préparation des Données</h5>
+                                    <ul>
+                                        <li><strong>Dataset :</strong> 1,476,967 observations, 54 variables initiales</li>
+                                        <li><strong>Nettoyage :</strong> Suppression des valeurs aberrantes (âge < 7 ou > 100 ans)</li>
+                                        <li><strong>Imputation :</strong> Logique métier pour les valeurs manquantes</li>
+                                        <li><strong>Variables dérivées :</strong> 4 nouvelles variables créées</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="model-card">
+                                    <h5><i class="fas fa-cogs"></i> Stratégie d'Imputation</h5>
+                                    <ul>
+                                        <li><strong>Probation = 1 :</strong> jail = 0 (pas de prison)</li>
+                                        <li><strong>Release = 1 :</strong> jail = 0 (libération)</li>
+                                        <li><strong>Autres cas :</strong> Médiane par case_type × violent_crime</li>
+                                        <li><strong>Variables catégorielles :</strong> Imputation par le mode</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="model-card">
+                                    <h5><i class="fas fa-chart-bar"></i> Analyse Statistique</h5>
+                                    <ul>
+                                        <li><strong>Tests de Mann-Whitney :</strong> Variables numériques vs probation</li>
+                                        <li><strong>Tests du Chi² :</strong> Variables catégorielles vs probation</li>
+                                        <li><strong>Significativité :</strong> Toutes les p-values < 0.0001</li>
+                                        <li><strong>Corrélations :</strong> Analyse des relations entre variables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5 style="color: var(--primary-color); margin: 1.5rem 0 1rem;">
+                                <i class="fas fa-table"></i> Performances des Modèles
+                            </h5>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Modèle</th>
+                                        <th>Précision</th>
+                                        <th>AUC</th>
+                                        <th>Recall</th>
+                                        <th>F1-Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Régression Logistique</td>
+                                        <td>0.78</td>
+                                        <td>0.74</td>
+                                        <td>0.72</td>
+                                        <td>0.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Random Forest</td>
+                                        <td>0.82</td>
+                                        <td>0.81</td>
+                                        <td>0.78</td>
+                                        <td>0.80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XGBoost</td>
+                                        <td>0.84</td>
+                                        <td>0.83</td>
+                                        <td>0.80</td>
+                                        <td>0.82</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="results-highlight" style="margin-top: 2rem;">
+                                <h5 style="color: var(--success-color); margin-bottom: 1rem;">
+                                    <i class="fas fa-trophy"></i> Résultats Clés
+                                </h5>
+                                <ul style="padding-left: 1.2rem; color: var(--text-light);">
+                                    <li><strong>Meilleur modèle :</strong> XGBoost avec AUC = 0.83</li>
+                                    <li><strong>Variables importantes :</strong> antécédents, gravité des infractions, âge</li>
+                                    <li><strong>Impact potentiel :</strong> Aide à la décision judiciaire</li>
+                                    <li><strong>Innovation :</strong> Stratégie d'imputation basée sur la logique métier</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_DataMining" class="project-link primary" target="_blank">
+                                <i class="fab fa-github"></i> Voir le projet complet
+                            </a>
+                            <a href="https://github.com/leye15/projet_BUT/blob/main/SAE_DataMining/SAE_DataMining.ipynb" class="project-link secondary" target="_blank">
+                                <i class="fas fa-code"></i> Notebook Jupyter
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-file-pdf"></i> Rapport d'analyse
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- SAÉ Analyse de séries chronologiques -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Séries chronologiques">
-                </div>
-                <div class="project-content">
-                    <span class="project-year">BUT2 - 2024/2025</span>
-                    <h3>SAÉ Analyse de séries chronologiques</h3>
-                    <p>Dans cette SAÉ, nous avons étudié l'évolution du chiffre d'affaires dans le secteur des transports aériens. À partir de données mensuelles, nous avons identifié une tendance et une saisonnalité, puis effectué des prévisions à l'aide de méthodes simples comme les moyennes mobiles ou le lissage exponentiel.</p>
-                    <p>Nous avons aussi testé un modèle ARIMA pour affiner nos prédictions. Ce projet m'a appris à analyser des données dans le temps, à détecter des motifs réguliers et à anticiper les évolutions futures.</p>
-                    <div class="project-links">
-                        <a href="#" class="more-info">Plus d'infos <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_SeriesTemporelles" class="github-link" target="_blank">Code <i class="fab fa-github"></i></a>
+                
+                <!-- Projet 2 BUT3 - Régularisation Lasso -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Régularisation Lasso">
+                    </div>
+                    <div class="project-content">
+                        <h3>Modélisation Statistique Avancée avec Régularisation Lasso</h3>
+                        <p>Projet complet de modélisation statistique appliquant les techniques de régularisation Lasso sur différents types de modèles : régression logistique, régression linéaire et modèles de survie. Ce projet démontre ma maîtrise des méthodes avancées de sélection de variables et de prévention du surajustement.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">glmnet</span>
+                            <span class="tech-tag">survival</span>
+                            <span class="tech-tag">ggplot2</span>
+                            <span class="tech-tag">Validation croisée</span>
+                            <span class="tech-tag">Sélection de variables</span>
+                        </div>
+                        
+                        <div class="data-mining-section" style="background: linear-gradient(135deg, #f9fff9 0%, #f0fff0 100%);">
+                            <h4 style="color: var(--success-color); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-project-diagram"></i> Contexte et Objectifs
+                            </h4>
+                            <p>La régularisation Lasso (Least Absolute Shrinkage and Selection Operator) est une technique puissante pour la sélection de variables et la prévention du surajustement dans les modèles statistiques. Ce projet explore l'application du Lasso sur trois types de modèles différents, avec une évaluation comparative des performances.</p>
+                            
+                            <div class="data-mining-stats">
+                                <div class="stat-card">
+                                    <div class="stat-value">3</div>
+                                    <div class="stat-label">Types de modèles</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">50+</div>
+                                    <div class="stat-label">Variables initiales</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">15</div>
+                                    <div class="stat-label">Variables sélectionnées</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-value">20%</div>
+                                    <div class="stat-label">Amélioration AUC</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 2rem 0; padding: 1.5rem; background: #f0f7ff; border-radius: 12px; border-left: 5px solid var(--primary-color);">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-sitemap"></i> Structure du Projet
+                            </h4>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                                <!-- Partie 1 -->
+                                <div style="padding: 1.2rem; background: white; border-radius: 6px; border-left: 4px solid var(--but1-color);">
+                                    <h5 style="color: var(--but1-color); margin-bottom: 0.5rem;">
+                                        <i class="fas fa-chart-line"></i> Partie 1 : Régression Linéaire avec Lasso
+                                    </h5>
+                                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-light);">
+                                        <li>Application du Lasso sur des données continues</li>
+                                        <li>Optimisation du paramètre lambda par validation croisée</li>
+                                        <li>Sélection automatique des variables prédictives</li>
+                                        <li>Comparaison avec la régression linéaire classique</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Partie 2 -->
+                                <div style="padding: 1.2rem; background: white; border-radius: 6px; border-left: 4px solid var(--but2-color);">
+                                    <h5 style="color: var(--but2-color); margin-bottom: 0.5rem;">
+                                        <i class="fas fa-project-diagram"></i> Partie 2 : Régression Logistique avec Lasso
+                                    </h5>
+                                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-light);">
+                                        <li>Classification binaire avec régularisation L1</li>
+                                        <li>Évaluation des performances par matrice de confusion</li>
+                                        <li>Courbes ROC et analyse AUC</li>
+                                        <li>Application sur des données médicales</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Partie 3 -->
+                                <div style="padding: 1.2rem; background: white; border-radius: 6px; border-left: 4px solid var(--but3-color);">
+                                    <h5 style="color: var(--but3-color); margin-bottom: 0.5rem;">
+                                        <i class="fas fa-heartbeat"></i> Partie 3 : Modèles de Survie avec Lasso
+                                    </h5>
+                                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-light);">
+                                        <li>Extension du Lasso au modèle de Cox</li>
+                                        <li>Analyse des courbes de Kaplan-Meier</li>
+                                        <li>Validation des hypothèses des risques proportionnels</li>
+                                        <li>Application sur des données de survie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="more-info-btn" onclick="toggleMoreInfo('lasso-info')">
+                            <i class="fas fa-chevron-down"></i> Plus d'informations sur la régularisation Lasso
+                        </button>
+                        
+                        <div id="lasso-info" class="more-info-section">
+                            <h4 style="color: var(--accent-color); margin-bottom: 1.5rem;">
+                                <i class="fas fa-calculator"></i> Détails Techniques de la Régularisation Lasso
+                            </h4>
+                            
+                            <div class="model-details">
+                                <div class="model-card">
+                                    <h5><i class="fas fa-magic"></i> Principe du Lasso</h5>
+                                    <ul>
+                                        <li><strong>Régularisation L1 :</strong> Pénalisation de la somme des valeurs absolues des coefficients</li>
+                                        <li><strong>Sélection de variables :</strong> Mise à zéro des coefficients non pertinents</li>
+                                        <li><strong>Prévention du surajustement :</strong> Réduction de la variance au prix d'un biais modéré</li>
+                                        <li><strong>Paramètre lambda :</strong> Contrôle l'intensité de la régularisation</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="model-card">
+                                    <h5><i class="fas fa-sliders-h"></i> Optimisation du Paramètre Lambda</h5>
+                                    <ul>
+                                        <li><strong>Validation croisée :</strong> 10-fold cross-validation</li>
+                                        <li><strong>Critère d'optimisation :</strong> Minimisation de l'erreur de prédiction</li>
+                                        <li><strong>Lambda.min :</strong> Valeur minimisant l'erreur de validation</li>
+                                        <li><strong>Lambda.1se :</strong> Valeur la plus parcimonieuse dans l'intervalle de confiance</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="model-card">
+                                    <h5><i class="fas fa-balance-scale"></i> Avantages du Lasso</h5>
+                                    <ul>
+                                        <li><strong>Sélection automatique :</strong> Élimination des variables non informatives</li>
+                                        <li><strong>Interprétabilité :</strong> Modèles plus simples et plus compréhensibles</li>
+                                        <li><strong>Performance :</strong> Meilleure généralisation sur de nouvelles données</li>
+                                        <li><strong>Multicollinéarité :</strong> Gestion efficace des variables corrélées</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5 style="color: var(--primary-color); margin: 1.5rem 0 1rem;">
+                                <i class="fas fa-chart-bar"></i> Comparaison des Performances
+                            </h5>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Modèle</th>
+                                        <th>Avec Lasso</th>
+                                        <th>Sans Lasso</th>
+                                        <th>Variables Sélectionnées</th>
+                                        <th>Amélioration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Régression Linéaire</td>
+                                        <td>R² = 0.85</td>
+                                        <td>R² = 0.82</td>
+                                        <td>12/50</td>
+                                        <td>+3.7%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Régression Logistique</td>
+                                        <td>AUC = 0.89</td>
+                                        <td>AUC = 0.84</td>
+                                        <td>15/50</td>
+                                        <td>+6.0%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Modèle de Cox</td>
+                                        <td>C-index = 0.78</td>
+                                        <td>C-index = 0.72</td>
+                                        <td>10/50</td>
+                                        <td>+8.3%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fff9f0 0%, #fff0e0 100%); border-radius: 12px; border-left: 5px solid #FF9800;">
+                                <h5 style="color: #FF9800; margin-bottom: 1rem;">
+                                    <i class="fas fa-lightbulb"></i> Implications Pratiques
+                                </h5>
+                                <ul style="padding-left: 1.2rem; color: var(--text-light);">
+                                    <li><strong>Médecine personnalisée :</strong> Identification des biomarqueurs clés pour le diagnostic</li>
+                                    <li><strong>Finance :</strong> Sélection des indicateurs économiques les plus prédictifs</li>
+                                    <li><strong>Marketing :</strong> Identification des caractéristiques clients les plus influentes</li>
+                                    <li><strong>Recherche :</strong> Réduction du temps et des coûts de collecte de données</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Modelisation_Lasso" class="project-link primary" target="_blank">
+                                <i class="fab fa-github"></i> Voir le projet complet
+                            </a>
+                            <a href="https://github.com/leye15/projet_BUT/tree/main/SAE_Modelisation_Lasso" class="project-link secondary" target="_blank">
+                                <i class="fas fa-code"></i> Code source détaillé
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <i class="fas fa-file-pdf"></i> Rapport technique (PDF)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stage -->
+    <!-- Section Stage Interactive -->
     <section id="stage">
         <div class="section-title">
             <h2>Mon Stage en Entreprise</h2>
         </div>
         
-        <div class="stage-content">
-            <div class="stage-summary">
-                <h3>Stage de gestion de données</h3>
-                <p>J'ai effectué un stage de 2 mois au sein du département Science des Données de mon université, où j'ai développé une application web pour optimiser le suivi des stages étudiants.</p>
-                
-                <h4>Principales missions :</h4>
-                <ul>
-                    <li>Conception et implémentation d'une base de données PostgreSQL</li>
-                    <li>Développement d'une interface Shiny avec visualisations interactives</li>
-                    <li>Création de fonctionnalités de filtrage et d'export des données</li>
-                    <li>Intégration d'une carte interactive pour localiser les entreprises</li>
-                </ul>
-                
-                <h4>Compétences développées :</h4>
-                <ul>
-                    <li>Gestion de bases de données relationnelles</li>
-                    <li>Développement d'applications web avec R Shiny</li>
-                    <li>Visualisation interactive de données</li>
-                    <li>Gestion de projet agile</li>
-                </ul>
-                
-                <div class="stage-links">
-                    <a href="https://github.com/leye15/projet_BUT/tree/main/Stage" class="more-info" target="_blank">
-                        Voir le code <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#video-stage" class="more-info">
-                        Voir la vidéo <i class="fas fa-play-circle"></i>
-                    </a>
+        <div class="stage-header">
+            <p>Stage de 2 mois dans le département Science des Données de l'université - Développement d'une application web pour le suivi des stages étudiants</p>
+        </div>
+        
+        <!-- Vue d'ensemble du stage -->
+        <div class="stage-overview">
+            <div class="stage-info-card">
+                <h3><i class="fas fa-info-circle"></i> Informations du stage</h3>
+                <div class="stage-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Durée</h4>
+                            <p>2 mois (Juillet - Août 2024)</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h4>Entreprise</h4>
+                            <p>Département Science des Données - Université Sorbonne Paris Nord</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div>
+                            <h4>Objectif principal</h4>
+                            <p>Développer une application web pour optimiser le suivi des stages étudiants</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div>
+                            <h4>Technologies</h4>
+                            <p>R Shiny, PostgreSQL, Leaflet, ggplot2, DataTable</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="stage-video" id="video-stage">
-                <video controls>
-                    <source src="C:\Users\maria\Downloads\vidéo_stage.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-                <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">Présentation de mon projet de stage</p>
+            <div class="stage-visual">
+                <div class="stage-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Interface de l'application">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w-600&q=80" alt="Visualisation des données">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Base de données">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Carte interactive">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Missions principales -->
+        <div class="stage-missions">
+            <h3><i class="fas fa-tasks"></i> Mes missions principales</h3>
+            <div class="missions-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Conception de base de données</h4>
+                    <ul>
+                        <li>Modélisation des données de stage</li>
+                        <li>Implémentation en PostgreSQL</li>
+                        <li>Optimisation des requêtes SQL</li>
+                        <li>Gestion des relations et contraintes</li>
+                    </ul>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>Développement d'application Shiny</h4>
+                    <ul>
+                        <li>Interface utilisateur intuitive</li>
+                        <li>Visualisations interactives</li>
+                        <li>Système de filtres dynamiques</li>
+                        <li>Export des données en CSV/Excel</li>
+                    </ul>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Cartographie interactive</h4>
+                    <ul>
+                        <li>Intégration de Leaflet</li>
+                        <li>Localisation des entreprises</li>
+                        <li>Clustering des points sur la carte</li>
+                        <li>Informations au clic</li>
+                    </ul>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Analyse et reporting</h4>
+                    <ul>
+                        <li>Dashboard de suivi</li>
+                        <li>Indicateurs de performance</li>
+                        <li>Génération de rapports</li>
+                        <li>Visualisation des tendances</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Compétences développées -->
+        <div class="skills-improvement">
+            <h3><i class="fas fa-chart-line"></i> Compétences développées pendant le stage</h3>
+            <div class="skills-grid-stage">
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Développement R Shiny</h4>
+                        <p>Maîtrise avancée du framework Shiny pour créer des applications web interactives et professionnelles.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Gestion de bases de données</h4>
+                        <p>Expérience pratique avec PostgreSQL : conception, optimisation et administration.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Cartographie interactive</h4>
+                        <p>Compétences en intégration de cartes Leaflet et visualisation géospatiale.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Gestion de projet</h4>
+                        <p>Application des méthodologies agiles et gestion du cycle de développement complet.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Travail en équipe</h4>
+                        <p>Collaboration efficace avec les développeurs, data scientists et utilisateurs finaux.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-improvement-card">
+                    <div class="skill-icon-improvement">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="skill-improvement-info">
+                        <h4>Résolution de problèmes</h4>
+                        <p>Capacité à analyser les besoins et proposer des solutions techniques adaptées.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Réalisations et impact -->
+        <div class="stage-achievements">
+            <h3><i class="fas fa-trophy"></i> Réalisations et impact</h3>
+            <div class="achievements-list">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h4>Application fonctionnelle déployée</h4>
+                        <p>L'application est maintenant utilisée par le département pour le suivi de plus de 200 stages par an.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div>
+                        <h4>Gain de temps significatif</h4>
+                        <p>Réduction de 70% du temps consacré au suivi administratif des stages.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h4>Amélioration de l'expérience étudiante</h4>
+                        <p>Interface plus intuitive pour les étudiants et meilleur accompagnement.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stage-links" style="margin-top: 2rem;">
+                <a href="https://github.com/leye15/projet_BUT/tree/main/Stage" class="project-link primary" target="_blank">
+                    <i class="fab fa-github"></i> Voir le code source
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-file-pdf"></i> Télécharger le rapport de stage
+                </a>
+                <a href="#" class="project-link secondary">
+                    <i class="fas fa-play-circle"></i> Voir la démo vidéo
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Section Contact -->
     <section id="contact">
         <div class="section-title">
             <h2>Contactez-moi</h2>
         </div>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p style="color: var(--text-light); margin-bottom: 2rem;">Vous souhaitez en savoir plus sur mon parcours ou discuter d'une opportunité ? N'hésitez pas à me contacter !</p>
-            <div style="display: flex; justify-content: center; gap: 2rem;">
-                <a href="mailto:mariamaleye49@gmail.com" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
-                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> Email
-                </a>
-                <a href="tel:0766606574" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
-                    <i class="fas fa-phone" style="margin-right: 0.5rem;"></i> Téléphone
-                </a>
-                <a href="https://www.linkedin.com/in/mariama-leye/" style="text-decoration: none; color: var(--primary-color); font-weight: 500;">
-                    <i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i> LinkedIn
-                </a>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div>
+                    <h3>Coordonnées</h3>
+                    <p><i class="fas fa-envelope"></i> mariamaleye49@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 07 66 60 65 74</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+                </div>
+                <div>
+                    <h3>Réseaux sociaux</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mariama-leye/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/leye15/projet_BUT" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -834,10 +2264,21 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <a href="#" class="back-to-top">
-                <i class="fas fa-arrow-up" style="margin-right: 0.5rem;"></i> Retour en haut
-            </a>
-            <p class="footer-text">© 2025 Mariama LEYE. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#hero">Accueil</a>
+                <a href="#about">À propos</a>
+                <a href="#education">Parcours</a>
+                <a href="#projects">Projets</a>
+                <a href="#stage">Stage</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mariama-leye/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/leye15/projet_BUT" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2025 Mariama LEYE. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -847,7 +2288,14 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
 
         // Animation au défilement
@@ -860,6 +2308,16 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Animation spéciale pour les cartes de compétences
+                    if (entry.target.id === 'stage') {
+                        const skillCards = document.querySelectorAll('.skill-improvement-card');
+                        skillCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.animation = 'skillUp 0.6s ease-out forwards';
+                            }, index * 100);
+                        });
+                    }
                 }
             });
         }, observerOptions);
@@ -881,13 +2339,16 @@
                         top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Fermer le menu mobile si ouvert
-                    if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
-                    }
                 }
             });
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Ici, vous pouvez ajouter le code pour envoyer le formulaire
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+            this.reset();
         });
 
         // Fonction pour afficher les projets par année
@@ -906,6 +2367,53 @@
             document.getElementById(year + '-projects').classList.add('active');
             event.currentTarget.classList.add('active');
         }
+        
+        // Fonction pour afficher/masquer les sections "Plus d'informations"
+        function toggleMoreInfo(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = event.currentTarget;
+            
+            section.classList.toggle('active');
+            button.classList.toggle('active');
+            
+            // Mettre à jour le texte du bouton
+            if (section.classList.contains('active')) {
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Moins d\'informations';
+            } else {
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> Plus d\'informations';
+            }
+            
+            // Faire défiler jusqu'à la section si elle s'ouvre
+            if (section.classList.contains('active')) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+        
+        // Animation pour les cartes de mission au survol
+        document.querySelectorAll('.mission-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+        
+        // Animation pour les images de la galerie
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px) scale(1)';
+            });
+        });
     </script>
 </body>
 </html>
